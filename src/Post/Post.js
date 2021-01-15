@@ -10,23 +10,22 @@ import { Box, Grid, Paper } from '@material-ui/core';
 import { PostContext } from '../Main/Main';
 import Link from '@material-ui/core/Link';
 
-// const useStyles = makeStyles({
-//   root: {
-//     // maxWidth: 345,
-//     // paddingBottom: 15,
-//   },
-// });
+const useStyles = makeStyles({
+  border: {
+    border: '1px solid #00b0ff'
+  },
+});
 
 const Post = (props) => {
   // const post = useContext(PostContext);
   const {title, body} = props.post;
 
-  // const classes = useStyles();
+  const classes = useStyles();
   // className={classes.root}
 
   return (
     <Grid item md={4}>
-      <Card style={{ height: '100%'}}>
+      <Card style={{ height: '100%'}} className={classes.border}>
         <CardActionArea>
           <CardContent>
             <Typography gutterBottom variant="h5" component="h2">
