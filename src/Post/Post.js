@@ -6,6 +6,7 @@ import CardContent from '@material-ui/core/CardContent';
 import Typography from '@material-ui/core/Typography';
 import { Box, Grid, Paper } from '@material-ui/core';
 import { useParams, Link } from 'react-router-dom';
+import Comments from '../Comments/Comments';
 
 const useStyles = makeStyles({
   border: {
@@ -28,7 +29,7 @@ const Post = (props) => {
               <Link to={`/detail/${id}`}>{title}</Link>
             </Typography>
             <Typography variant="body2" color="textSecondary" component="p">
-              {body.split(" ").splice(0,15).join(" ")} <Link underline='hover'>read more...</Link>
+              {body.split(" ").splice(0,15).join(" ")} <Link to={`/detail/${id}`}>[read more...]</Link>
             </Typography>
           </CardContent>
         </CardActionArea>
