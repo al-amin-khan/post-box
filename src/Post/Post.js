@@ -12,6 +12,10 @@ const useStyles = makeStyles({
   border: {
     border: '1px solid #00b0ff'
   },
+  noUnderline: {
+    textDecoration: 'none',
+    color: '#263238',
+  }
 });
 
 const Post = (props) => {
@@ -26,7 +30,7 @@ const Post = (props) => {
         <CardActionArea>
           <CardContent>
             <Typography gutterBottom variant="h5" component="h2">
-              <Link to={`/detail/${id}`}>{title}</Link>
+              <Link to={`/detail/${id}`} className={classes.noUnderline}>{title}</Link>
             </Typography>
             <Typography variant="body2" color="textSecondary" component="p">
               {body.split(" ").splice(0,15).join(" ")} <Link to={`/detail/${id}`}>[read more...]</Link>
