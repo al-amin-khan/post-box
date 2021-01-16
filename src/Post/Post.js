@@ -2,13 +2,10 @@ import React, { useContext } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
 import CardActionArea from '@material-ui/core/CardActionArea';
-import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
-import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import { Box, Grid, Paper } from '@material-ui/core';
-import { PostContext } from '../Main/Main';
-import Link from '@material-ui/core/Link';
+import { useParams, Link } from 'react-router-dom';
 
 const useStyles = makeStyles({
   border: {
@@ -17,11 +14,10 @@ const useStyles = makeStyles({
 });
 
 const Post = (props) => {
-  // const post = useContext(PostContext);
-  const {title, body} = props.post;
 
+  const {id, title, body} = props.post;
+  const {postId} = useParams();
   const classes = useStyles();
-  // className={classes.root}
 
   return (
     <Grid item md={4}>
@@ -29,7 +25,7 @@ const Post = (props) => {
         <CardActionArea>
           <CardContent>
             <Typography gutterBottom variant="h5" component="h2">
-              {title}
+              <Link to={`/detail/${id}`}>{title}</Link>
             </Typography>
             <Typography variant="body2" color="textSecondary" component="p">
               {body.split(" ").splice(0,15).join(" ")} <Link underline='hover'>read more...</Link>
